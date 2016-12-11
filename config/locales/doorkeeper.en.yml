@@ -15,6 +15,9 @@ en:
               secured_uri: 'must be an HTTPS/SSL URI.'
 
   doorkeeper:
+    scopes:
+      public: 'Access your public data.'
+      write: 'Make changes to your profile.'
     applications:
       confirmations:
         destroy: 'Are you sure?'

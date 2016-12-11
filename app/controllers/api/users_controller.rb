@@ -1,8 +1,17 @@
 class Api::UsersController < ApplicationController
-  before_action :doorkeeper_authorize!
+  before_action -> { doorkeeper_authorize! :public }, only: :show
+  before_action -> { doorkeeper_authorize! :write }, only: :update
+  # doorkeeper_authorize! :admin, :write - to apply admin permission
+
+  # doorkeeper_authorize! :admin - to apply all the both
+  # doorkeeper_authorize! :write
 
   def show
     render json: current_resource_owner.as_json
+  end
+
+  def update
+    render json: { result: current_resource_owner.touch(:updated_at) }
   end
 
   private

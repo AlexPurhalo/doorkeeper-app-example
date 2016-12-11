@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'user', to: 'users#show'
+    get 'user/update', to: 'users#update'
   end
 end
