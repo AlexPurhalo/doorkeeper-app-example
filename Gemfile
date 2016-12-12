@@ -52,3 +52,6 @@ gem 'bcrypt-ruby'
 gem 'doorkeeper'
 # rails generate doorkeeper:install
 # rails generate doorkeeper:migration
+
+
+gem 'rack-cors', require: 'rack/cors'
