@@ -1,13 +1,12 @@
 class Api::UsersController < ApplicationController
-  before_action -> { doorkeeper_authorize! :public }, only: :show
-  before_action -> { doorkeeper_authorize! :write }, only: :update
-  # doorkeeper_authorize! :admin, :write - to apply admin permission
-
-  # doorkeeper_authorize! :admin - to apply all the both
-  # doorkeeper_authorize! :write
+  # before_action -> { doorkeeper_authorize! :public }, only: :show
+  # before_action -> { doorkeeper_authorize! :write }, only: :update
 
   def show
-    render json: current_resource_owner.as_json
+    # render json: current_resource_owner.as_json
+    response = JSON.parse RestClient.get('http://api.openweathermap.org/data/2.5/forecast?appid=d6ae301398cd22a6c44139eaaf95c03a&q=fastov,ukraine')
+    # render response
+    render json: response
   end
 
   def update

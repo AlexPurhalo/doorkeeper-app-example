@@ -55,3 +55,5 @@ gem 'doorkeeper'
 
 
 gem 'rack-cors', require: 'rack/cors'
+
+gem 'rest-client'
